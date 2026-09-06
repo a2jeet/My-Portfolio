@@ -3,7 +3,7 @@
   var src=script?script.getAttribute('src')||'':'';
   var root=src.replace(/\/assets\/js\/shell\.js(?:\?.*)?$/,'')||'.';
   function u(path){return root+path}
-  function header(){return '<header class="pf-header"><div class="container pf-nav"><a class="pf-brand" href="'+u('/index.html')+'"><strong>Ajeet Kumar</strong><span>Design leadership · UI/UX · Visual design</span></a><nav class="pf-links" aria-label="Primary navigation"><a href="'+u('/index.html')+'">Home</a><a href="'+u('/about/index.html')+'">About</a><div class="pf-work"><button type="button" aria-haspopup="true">Work</button><div class="pf-menu"><a href="'+u('/work/uiux/index.html')+'">UI/UX design <span>→</span></a><a href="'+u('/work/website/index.html')+'">Website design <span>→</span></a><a href="'+u('/work/social/index.html')+'">Social & graphics <span>→</span></a><a href="'+u('/work/print/index.html')+'">Print & brochures <span>→</span></a><a href="'+u('/work/event/index.html')+'">Event design <span>→</span></a><a href="'+u('/work/misc/index.html')+'">Other explorations <span>→</span></a><a href="'+u('/work/index.html')+'">View all work <span>→</span></a></div></div><a href="'+u('/contact/index.html')+'">Contact</a></nav><a class="pf-cta" href="'+u('/contact/index.html')+'">Let’s connect →</a><button class="pf-mobile" type="button" aria-label="Open menu">☰</button></div></header>'}
+  function header(){return '<header class="pf-header"><div class="container pf-nav"><a class="pf-brand" href="'+u('/index.html')+'"><strong>Ajeet Kumar</strong><span>Design leadership · UI/UX · Visual design</span></a><nav class="pf-links" aria-label="Primary navigation"><a href="'+u('/index.html')+'">Home</a><a href="'+u('/about/index.html')+'">About</a><div class="pf-work"><button type="button" aria-haspopup="true" aria-expanded="false">Work</button><div class="pf-menu"><a href="'+u('/work/uiux/index.html')+'">UI/UX design <span>→</span></a><a href="'+u('/work/website/index.html')+'">Website design <span>→</span></a><a href="'+u('/work/social/index.html')+'">Social & graphics <span>→</span></a><a href="'+u('/work/print/index.html')+'">Print & brochures <span>→</span></a><a href="'+u('/work/event/index.html')+'">Event design <span>→</span></a><a href="'+u('/work/misc/index.html')+'">Other explorations <span>→</span></a><a href="'+u('/work/index.html')+'">View all work <span>→</span></a></div></div><a href="'+u('/contact/index.html')+'">Contact</a></nav><a class="pf-cta" href="'+u('/contact/index.html')+'">Let’s connect →</a><button class="pf-mobile" type="button" aria-label="Open menu">☰</button></div></header>'}
   function footer(){return '<footer class="pf-footer"><div class="container"><div class="pf-footer-grid"><div><h3>Design with purpose. Deliver with impact.</h3><p>I bring together product thinking, visual craft and design leadership to make complex ideas easier to understand—and easier to use.</p></div><div><strong>Explore</strong><a href="'+u('/work/index.html')+'">Selected work</a><a href="'+u('/about/index.html')+'">About me</a><a href="'+u('/contact/index.html')+'">Contact</a></div><div><strong>Capabilities</strong><a href="'+u('/work/uiux/index.html')+'">UI/UX design</a><a href="'+u('/work/website/index.html')+'">Website design</a><a href="'+u('/work/social/index.html')+'">Visual communication</a></div></div><small>© 2026 Ajeet Kumar · Greater Noida, India · 17+ years across digital products, brand and creative leadership.</small></div></footer>'}
   function replaceChrome(){
     var old=document.querySelector('.site-header,.top,.portfolio-header,.header-shell');
@@ -28,6 +28,11 @@
     var main=document.querySelector('main');if(!main)return;
     main.insertAdjacentHTML('beforebegin','<div class="pf-trail"><div class="container"><div class="pf-crumbs">'+pieces.join('')+'</div><a class="pf-back" href="'+back+'">← Back</a></div></div>');
   }
+  function aboutExtras(){
+    if((document.body.dataset.page||'')!=='about'||document.querySelector('.pf-about-extra'))return;
+    var main=document.querySelector('main');if(!main)return;
+    main.insertAdjacentHTML('beforeend','<section class="section soft pf-about-extra"><div class="container"><div class="eyebrow">Leadership & growth</div><h2 class="section-title">The work behind the work matters too.</h2><p class="human-note">Alongside designing products and campaigns, I lead a multidisciplinary design team, shape review and quality practices, plan resources, mentor designers and work closely with product, marketing, presales and engineering stakeholders.</p><div class="pf-achievement-grid"><article><strong>≈10</strong><h3>Designers led & mentored</h3><p>Planning, reviews, capability development and day-to-day design leadership.</p></article><article><strong>7+</strong><h3>Enterprise website & product initiatives</h3><p>Across insurance, FinTech, healthcare, SaaS and enterprise technology.</p></article><article><strong>Impact Award</strong><h3>Recognition at Damco</h3><p>Received during the company’s 30-year celebration for contribution and impact.</p></article></div><div class="pf-credentials"><div><div class="eyebrow">Certifications</div><h3>Continuous learning</h3></div><p>User Experience: The Beginner’s Guide · AI for Designers · Interaction Design Foundation</p></div></div></section>');
+  }
   function humanize(){
     var page=document.body.dataset.page||'';
     function text(sel,value){var n=document.querySelector(sel);if(n)n.textContent=value}
@@ -44,7 +49,7 @@
     }
     if(page==='contact'){
       text('.contact-page h1','Have a project, role or idea worth discussing?');
-      var p=document.querySelector('.contact-page h1 + p');if(p)p.textContent='I’m always happy to talk about design leadership, product experience, visual systems or a challenging brief that needs a thoughtful pair of eyes.';
+      var cp=document.querySelector('.contact-page h1 + p');if(cp)cp.textContent='I’m always happy to talk about design leadership, product experience, visual systems or a challenging brief that needs a thoughtful pair of eyes.';
     }
     if(page==='about'){
       text('.about-hero .eyebrow','About me');
@@ -54,15 +59,34 @@
       if(ps[1])ps[1].textContent='I still enjoy being close to the craft, but today a big part of my role is creating the conditions for good design: clearer briefs, stronger reviews, scalable systems, better collaboration and thoughtful mentoring.';
       text('.availability-box b','What I’m looking for');
       var ap=document.querySelector('.availability-box p');if(ap)ap.textContent='Senior design leadership opportunities where product thinking, visual quality and team development matter equally.';
-      document.querySelectorAll('.timeline-row').forEach(function(row,i){var p=row.querySelector('p');if(!p)return;var copy=['Leading multidisciplinary design work across enterprise products, web experiences, brand systems, campaigns, executive communication and events—while mentoring designers and improving creative operations.','Created high-end websites, interfaces and multi-channel marketing assets for global B2B audiences, from landing pages and emailers to brochures and event graphics.','Built my foundation in web and UI design through healthcare products, icon systems, interactive presentations, CBT modules and close front-end collaboration.'];p.textContent=copy[i]||p.textContent});
+      var rows=document.querySelectorAll('.timeline-row');
+      if(rows[0]){var h=rows[0].querySelector('h3');if(h)h.textContent='Manager – UI/UX design leadership';}
+      rows.forEach(function(row,i){var p=row.querySelector('p');if(!p)return;var copy=['Leading multidisciplinary design work across enterprise products, web experiences, brand systems, campaigns, executive communication and events—while mentoring designers and improving creative operations.','Created high-end websites, interfaces and multi-channel marketing assets for global B2B audiences, from landing pages and emailers to brochures and event graphics.','Built my foundation in web and UI design through healthcare products, icon systems, interactive presentations, CBT modules and close front-end collaboration.'];p.textContent=copy[i]||p.textContent});
       var tags=document.querySelector('.tags');if(tags)tags.innerHTML=['Figma','Adobe XD','Photoshop','Illustrator','InDesign','After Effects','FigJam','Jira','Miro','Notion','AI-assisted workflows'].map(function(x){return '<span>'+x+'</span>'}).join('');
+    }
+    if(page==='meridian'){
+      text('.detail-hero h1','Meridian travel website');
+      text('.detail-hero h1 + p','A premium travel experience that lets photography lead while giving people a calm, editorial path from inspiration to exploration.');
+      text('.split .eyebrow','Design story');
+      text('.split .section-title','Make the destination feel close before the journey begins.');
+      var mp=document.querySelector('.split p');if(mp)mp.textContent='The idea was simple: let the imagery create desire, then use disciplined typography, generous space and predictable content patterns to help people keep exploring without feeling pushed.';
+    }
+    if(page==='insureflow'){
+      text('.detail-hero h1','InsureFlow digital platform');
+      text('.detail-hero h1 + p','An enterprise insurance experience focused on reducing cognitive load and helping teams move through complex claims work with more confidence.');
+      text('.split .eyebrow','Design story');
+      text('.split .section-title','Complex insurance work should still feel understandable.');
+      var ip=document.querySelector('.split p');if(ip)ip.textContent='The design organizes dense operational information into clearer priorities, repeatable patterns and more visible next actions—so users spend less time interpreting the interface and more time resolving the work in front of them.';
+      var metrics=document.querySelectorAll('.metrics .metric');
+      var vals=[['Clearer','Task hierarchy & next actions'],['Consistent','Reusable enterprise patterns'],['Focused','Less visual noise in dense workflows']];
+      metrics.forEach(function(m,i){if(!vals[i])return;m.innerHTML='<strong>'+vals[i][0]+'</strong>'+vals[i][1]});
     }
   }
   function interactions(){
     var mob=document.querySelector('.pf-mobile'),links=document.querySelector('.pf-links'),work=document.querySelector('.pf-work');
     if(mob&&links)mob.addEventListener('click',function(){links.classList.toggle('open')});
-    var wb=work&&work.querySelector('button');if(wb)wb.addEventListener('click',function(){work.classList.toggle('open')});
+    var wb=work&&work.querySelector('button');if(wb)wb.addEventListener('click',function(){var isOpen=work.classList.toggle('open');wb.setAttribute('aria-expanded',isOpen?'true':'false')});
   }
-  function run(){replaceChrome();trail();humanize();interactions()}
+  function run(){replaceChrome();trail();humanize();aboutExtras();interactions()}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
 })();
