@@ -43,12 +43,32 @@
     body[data-page="medc"] .medc-badge{background:var(--pf-soft-2)!important;color:var(--pf-ink-2)!important;border-color:var(--pf-line)!important}
     body[data-page="medc"] .medc-cta,
     body[data-page="medc"] .medc-button{background:var(--pf-navy)!important;color:#fff!important;border-color:var(--pf-navy)!important}
+    body[data-page="medc"] .palette span[style*="#00b96b"],
+    body[data-page="medc"] .palette span[style*="#00B96B"]{--swatch:var(--pf-accent)!important}
   </style>
 </head>
 <body data-page="medc">
   <div id="app"></div>
   <script>window.SITE_ROOT="../..";</script>
   <script src="../../assets/js/site.js"></script>
+  <script>
+    (function(){
+      var app=document.getElementById('app');
+      if(!app)return;
+      var observer=new MutationObserver(function(){
+        var swatches=app.querySelectorAll('.palette span');
+        swatches.forEach(function(s){
+          var swatch=(s.style.getPropertyValue('--swatch')||'').toLowerCase();
+          if(swatch==='#00b96b'){
+            s.style.setProperty('--swatch','#8B6852');
+            s.innerHTML='<b>Portfolio Bronze</b>#8B6852';
+          }
+        });
+      });
+      observer.observe(app,{childList:true,subtree:true});
+      observer.takeRecords();
+    })();
+  </script>
   <script src="../../assets/js/shell.js"></script>
 </body>
 </html>
