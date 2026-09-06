@@ -7,6 +7,43 @@
   <title>Nama Services Digital Utility Case Study | Ajeet Kumar</title>
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/system.css">
+  <style>
+    /* Keep the Nama/MEDC case study visually aligned with the shared portfolio system. */
+    body[data-page="medc"]{
+      --accent:var(--pf-accent);
+      --ink:var(--pf-ink);
+      --muted:var(--pf-muted);
+      --soft:var(--pf-soft);
+      --line:var(--pf-line);
+      --night:var(--pf-navy);
+    }
+    body[data-page="medc"] .medc-hero,
+    body[data-page="medc"] .medc-dark,
+    body[data-page="medc"] .case-dark{
+      background:var(--pf-navy)!important;
+      color:#fff!important;
+    }
+    body[data-page="medc"] .medc-hero p,
+    body[data-page="medc"] .medc-dark p,
+    body[data-page="medc"] .case-dark p{color:#D8D5CF!important}
+    body[data-page="medc"] .medc-accent,
+    body[data-page="medc"] .medc-stat strong,
+    body[data-page="medc"] .medc-step b,
+    body[data-page="medc"] .medc-flow b,
+    body[data-page="medc"] .medc-card b,
+    body[data-page="medc"] .medc-card strong{color:var(--pf-accent)!important}
+    body[data-page="medc"] .medc-step,
+    body[data-page="medc"] .medc-card,
+    body[data-page="medc"] .medc-stat,
+    body[data-page="medc"] .medc-panel{border-color:var(--pf-line)!important}
+    body[data-page="medc"] .medc-soft,
+    body[data-page="medc"] .medc-panel{background:var(--pf-soft)!important}
+    body[data-page="medc"] .medc-pill,
+    body[data-page="medc"] .medc-chip,
+    body[data-page="medc"] .medc-badge{background:var(--pf-soft-2)!important;color:var(--pf-ink-2)!important;border-color:var(--pf-line)!important}
+    body[data-page="medc"] .medc-cta,
+    body[data-page="medc"] .medc-button{background:var(--pf-navy)!important;color:#fff!important;border-color:var(--pf-navy)!important}
+  </style>
 </head>
 <body data-page="medc">
   <div id="app"></div>
