@@ -51,6 +51,38 @@
       .yoda-hero.has-banner .hero-actions{align-items:flex-start;gap:18px}
       .yoda-hero.has-banner .breadcrumbs{margin-bottom:20px}
     }
+
+    .yoda-case .yoda-section-lead{max-width:760px;font-size:17px;line-height:1.8}
+    .yoda-case .yoda-wireframes{background:#f5f5f5}
+    .yoda-wire-layout{display:grid;grid-template-columns:minmax(230px,.8fr) minmax(0,1.6fr);gap:clamp(32px,6vw,88px);align-items:start;margin-top:48px}
+    .yoda-design-notes{position:sticky;top:88px}
+    .yoda-design-notes article{padding:24px 0;border-top:1px solid #d8dce2}
+    .yoda-design-notes article span{font-size:10px;font-weight:700;letter-spacing:.1em;color:#666b75}
+    .yoda-design-notes h3,.yoda-experience-notes h3{font-size:24px;line-height:1.25;margin:12px 0}
+    .yoda-design-notes p{margin:0;line-height:1.8}
+    .yoda-design-notes .text-link{display:inline-block;margin-top:24px;color:#4936a0}
+    .yoda-wire-showcase{margin:0;min-width:0}
+    .yoda-wire-showcase img,.yoda-app-showcase img{display:block;width:100%;max-width:100%;height:auto}
+    .yoda-wire-showcase img{border:1px solid #e1e3e6;border-radius:12px}
+    .yoda-wire-showcase figcaption{margin-top:16px;font-size:12px;color:#666b75}
+    .yoda-case .yoda-experience{background:linear-gradient(135deg,#557cec 0%,#719af4 55%,#4d73db 100%);color:#101c40}
+    .yoda-experience .eyebrow{color:#14285b}
+    .yoda-experience .eyebrow:before{background:#14285b}
+    .yoda-experience .case-intro-grid{align-items:center;gap:48px}
+    .yoda-experience .case-intro-grid p,.yoda-experience-notes p{color:#14254e;font-size:16px;line-height:1.8}
+    .yoda-app-showcase{margin:48px 0 0}
+    .yoda-app-showcase img{border-radius:16px}
+    .yoda-experience-notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-top:36px}
+    .yoda-experience-notes article{border-top:1px solid #20397655;padding-top:16px}
+    .yoda-experience-notes h3{font-size:22px}
+    .yoda-experience-notes p{font-size:14px;margin-bottom:0}
+    @media(max-width:900px){
+      .yoda-wire-layout{grid-template-columns:1fr}
+      .yoda-design-notes{position:static}
+      .yoda-wire-showcase{width:100%;max-width:720px;margin-inline:auto}
+      .yoda-experience .case-intro-grid{gap:16px}
+      .yoda-experience-notes{grid-template-columns:1fr;gap:20px}
+    }
   </style>
 </head>
 <body data-page="yoda">
