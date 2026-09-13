@@ -8,29 +8,48 @@
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/system.css">
   <style>
-    /* Activate the banner layout only after the image loads successfully. */
-    .yoda-hero.has-banner{padding:0}
-    .yoda-hero.has-banner .yoda-hero-grid{
-      position:relative;z-index:1;min-height:650px;padding-block:56px;
+    /* Keep the complete artwork visible; never enlarge it to fill a fixed height. */
+    body[data-page="yoda"] .yoda-hero.has-banner{
+      display:grid;isolation:isolate;padding:0;background:#14213b!important;
     }
     .yoda-hero.has-banner .yoda-banner{
-      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+      grid-area:1 / 1;align-self:center;position:static;
+      display:block;width:100%;height:auto;max-width:100%;
+    }
+    .yoda-hero.has-banner .yoda-hero-grid{
+      grid-area:1 / 1;align-self:center;position:relative;z-index:1;
+      display:block;width:90%;max-width:1728px;min-height:0;
+      margin-inline:auto;padding-block:36px;
     }
     .yoda-hero.has-banner .yoda-hero-grid>div:first-child{
-      max-width:580px;padding:24px;border-radius:20px;
-      background:linear-gradient(90deg,rgba(13,23,39,.9),rgba(13,23,39,.65));
+      width:38%;max-width:580px;padding:0;border-radius:0;background:none;
     }
-    .yoda-hero.has-banner h1{font-size:clamp(52px,5.4vw,84px)}
-    .yoda-hero.has-banner .breadcrumbs{margin-bottom:28px}
-    @media(max-width:900px){
-      .yoda-hero.has-banner{display:flex;flex-direction:column}
-      .yoda-hero.has-banner .yoda-hero-grid{min-height:0;padding-block:40px}
-      .yoda-hero.has-banner .yoda-hero-grid>div:first-child{
-        max-width:100%;padding:0;background:none;
+    .yoda-hero.has-banner h1{
+      font-size:clamp(38px,3.3vw,64px);line-height:1.08;
+      letter-spacing:-.035em;margin:18px 0 24px;
+    }
+    .yoda-hero.has-banner h1 i{color:#b9d8ff;white-space:nowrap}
+    .yoda-hero.has-banner .eyebrow{color:#b9d8ff;font-size:11px;letter-spacing:.12em}
+    .yoda-hero.has-banner .eyebrow:before{background:#b9d8ff}
+    .yoda-hero.has-banner .breadcrumbs{margin-bottom:24px;color:#d5deed;font-size:11px}
+    .yoda-hero.has-banner p{font-size:clamp(14px,1vw,17px);line-height:1.7;margin:0;max-width:460px}
+    .yoda-hero.has-banner .hero-actions{display:flex;flex-wrap:wrap;gap:18px 24px;margin-top:28px}
+    .yoda-hero.has-banner .hero-actions .btn{padding:12px 18px;font-size:10px}
+    .yoda-hero.has-banner .text-link{font-size:11px;color:#fff}
+    @media(max-width:1199px){
+      body[data-page="yoda"] .yoda-hero.has-banner{display:flex;flex-direction:column}
+      .yoda-hero.has-banner .yoda-hero-grid{
+        width:calc(100% - 48px);padding-block:48px;margin-inline:auto;
       }
-      .yoda-hero.has-banner .yoda-banner{
-        position:static;order:1;height:auto;object-fit:contain;
-      }
+      .yoda-hero.has-banner .yoda-hero-grid>div:first-child{width:100%;max-width:680px}
+      .yoda-hero.has-banner h1{font-size:clamp(34px,5.5vw,58px)}
+      .yoda-hero.has-banner p{max-width:600px}
+      .yoda-hero.has-banner .yoda-banner{order:1;width:100%;height:auto}
+    }
+    @media(max-width:560px){
+      .yoda-hero.has-banner .yoda-hero-grid{padding-block:36px}
+      .yoda-hero.has-banner .hero-actions{align-items:flex-start;gap:18px}
+      .yoda-hero.has-banner .breadcrumbs{margin-bottom:20px}
     }
   </style>
 </head>
