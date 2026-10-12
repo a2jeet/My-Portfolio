@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root{
-  --pf-ink:#171A1F;
-  --pf-ink-2:#3F4145;
-  --pf-muted:#74716C;
-  --pf-line:#E4E0D9;
-  --pf-bg:#FCFBF8;
-  --pf-soft:#F5F2EC;
-  --pf-soft-2:#EEE9E1;
-  --pf-navy:#1B2024;
-  --pf-accent:#8B6852;
-  --pf-accent-dark:#6E5140;
-  --pf-sage:#596964;
+  --pf-ink:#17212F;
+  --pf-ink-2:#4C586B;
+  --pf-muted:#586477;
+  --pf-line:#DCE2EB;
+  --pf-bg:#FAFAF8;
+  --pf-soft:#F1F4F9;
+  --pf-soft-2:#EAF0FC;
+  --pf-navy:#111D30;
+  --pf-accent:#1859E6;
+  --pf-accent-dark:#1245B6;
+  --pf-sage:#1859E6;
   --pf-radius:20px;
   --pf-shadow:0 20px 56px rgba(34,31,27,.09);
   --pf-max:1240px;
